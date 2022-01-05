@@ -1,0 +1,18 @@
+
+
+# <emoji> [issue hash] [scope:] <message in past tense>
+
+# 🔨    = chore
+# 🐛    = fix
+# ✨    = feature
+# ⚡    = performance
+# 📚    = documentation
+# ♻️    = code refactor
+# 🧪    = testing
+# 🎨    = code style
+# 👷    = ci/cd pipeline
+# 👆    = bump
+# 🔮    = pull request
+# 🔒    = security
+# 🗺️    = internationalization
+# 🚀    = release

@@ -1,0 +1,10 @@
+[user]
+    email = vsnthdev@gmail.com
+    name = Vasanth Developer
+[core]
+    editor = "'code' -w"
+    autocrlf = false
+[commit]
+    template = ~/.gitmessage
+[pull]
+    rebase = false

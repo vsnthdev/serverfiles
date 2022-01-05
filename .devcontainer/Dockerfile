@@ -22,9 +22,16 @@ RUN apt-get update && \
     curl -fsSL https://starship.rs/install.sh > /starship_installer.sh && \
     chmod +x /starship_installer.sh && \
     /starship_installer.sh --yes && \
-    rm /starship_installer.sh
+    rm /starship_installer.sh && \
+    git config --global user.email vsnthdev@gmail.com && \
+    git config --global user.name "Vasanth Developer" && \
+    git config --global core.editor "'code' -w" && \
+    git config --global core.autocrlf false && \
+    git config --global commit.template "~/.gitmessage" && \
+    git config --global pull.rebase false
 
 COPY ./.config /home/serverfiles/.config
+COPY ./.git* /home/serverfiles/
 RUN chown -R serverfiles:serverfiles /home/serverfiles/.config
 
 USER serverfiles
