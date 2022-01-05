@@ -17,7 +17,8 @@
         "aaronthomas.vscode-snazzy-operator",
         "henriiik.vscode-sort",
         "Tyriar.sort-lines",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode"
     ],
     "settings": {
         "files.eol": "\n",
