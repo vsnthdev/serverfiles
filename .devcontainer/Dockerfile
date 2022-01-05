@@ -32,6 +32,8 @@ RUN apt-get update && \
 
 COPY ./.config /home/serverfiles/.config
 COPY ./.git* /home/serverfiles/
-RUN chown -R serverfiles:serverfiles /home/serverfiles/.config
+
+RUN chown -R serverfiles:serverfiles /home/serverfiles/.config && \
+    chown -R serverfiles:serverfiles /home/serverfiles/.git*
 
 USER serverfiles
