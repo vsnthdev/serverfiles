@@ -1,0 +1,5 @@
+serverfiles
+    write
+        <config>
+        <output>
+        --data <data_file>

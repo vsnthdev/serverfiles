@@ -25,7 +25,7 @@ RUN apt-get update && \
     rm /starship_installer.sh && \
     git config --global user.email vsnthdev@gmail.com && \
     git config --global user.name "Vasanth Developer" && \
-    git config --global core.editor "'code' -w" && \
+    git config --global core.editor "'code-insiders' -w" && \
     git config --global core.autocrlf false && \
     git config --global commit.template "~/.gitmessage" && \
     git config --global pull.rebase false
