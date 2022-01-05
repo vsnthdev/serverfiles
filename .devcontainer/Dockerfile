@@ -25,6 +25,6 @@ RUN apt-get update && \
     rm /starship_installer.sh
 
 COPY ./.config /home/serverfiles/.config
-RUN chown -R serverfiles:serverfiles /home/serverfiles
+RUN chown -R serverfiles:serverfiles /home/serverfiles/.config
 
 USER serverfiles
