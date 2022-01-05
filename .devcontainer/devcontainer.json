@@ -2,5 +2,9 @@
     "name": "GitHub Codespaces (Default)",
     "build": {
         "dockerfile": "Dockerfile"
+    },
+    "settings": {
+        "terminal.integrated.fontSize": 22,
+        "editor.fontSize": 20
     }
 }

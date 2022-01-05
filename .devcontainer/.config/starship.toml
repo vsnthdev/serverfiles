@@ -1,0 +1,13 @@
+[character]
+success_symbol = "👉"
+error_symbol = "🚨"
+
+[nodejs]
+format = "via [ $version](bold green) "
+
+[docker_context]
+symbol = "🐋"
+disabled = false
+
+[package]
+symbol = "🎁"
