@@ -6,6 +6,7 @@
 
 import hbs from 'handlebars'
 import getSystemInfo from '../../../util/systemInfo.js'
+import timeHelper from './helpers/time.js'
 
 export default async ({ data, template }: { data: any; template: string }) => {
     // make environment variables available to config templates
@@ -13,6 +14,9 @@ export default async ({ data, template }: { data: any; template: string }) => {
 
     // make system information available to config templates
     data['sys'] = await getSystemInfo()
+
+    // register our custom helpers
+    hbs.registerHelper('time', timeHelper)
 
     const render = hbs.compile(template)
     const config = render(data)

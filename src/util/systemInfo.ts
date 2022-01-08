@@ -15,7 +15,5 @@ export default async () => {
     // remove some sensitive fields
     delete info.cpu.flags
 
-    console.log(info)
-
     return info
 }
