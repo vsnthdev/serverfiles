@@ -4,5 +4,7 @@
  */
 
 import logger from './logger.js'
+import cmds from './cmds/index.js'
 
 await logger()
+await cmds()

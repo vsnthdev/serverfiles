@@ -16,14 +16,17 @@
         "url": "https://github.com/vsnthdev/serverfiles.git"
     },
     "scripts": {
-        "dev": "tsc -w",
+        "watch": "tsc -w",
         "clean": "rm -rf dist bin",
         "transpile": "tsc --incremental false && cp package.json dist/",
-        "package": "caxa -i dist -o bin/serverfiles -- {{caxa}}/node_modules/.bin/node {{caxa}}/serverfiles.js",
-        "build": "run-s clean transpile package"
+        "package": "caxa -i dist -o bin/serverfiles -- {{caxa}}/node_modules/.bin/node {{caxa}}/serverfiles.js --caxa",
+        "build": "run-s clean transpile package",
+        "dev": "run-s clean watch"
     },
     "dependencies": {
         "chalk": "^5.0.0",
+        "commander": "^8.3.0",
+        "es-dirname": "^0.1.0",
         "itivrutaha": "^2.0.12"
     },
     "devDependencies": {
