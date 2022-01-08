@@ -26,6 +26,7 @@ RUN apt-get update && \
     rm /starship_installer.sh && \
     curl -fsSL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/sshd-debian.sh > /ssh_debian.sh && \
     chmod +x /ssh_debian.sh && \
+    addgroup ssh && \
     /ssh_debian.sh && \
     rm /ssh_debian.sh && \
     chsh -s /usr/bin/bash serverfiles
