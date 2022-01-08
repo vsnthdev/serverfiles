@@ -3,7 +3,7 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    "extensions": [
-        "Shan.code-settings-sync"
-    ]
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "fish",
+    }
 }
