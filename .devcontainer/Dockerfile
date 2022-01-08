@@ -10,6 +10,7 @@ ENV DEBIAN_FRONTEND=nonintercative
 #   5. Install & configure Volta.sh tool to manage Node.js versions
 #   6. Install latest Node.js using Volta
 #   7. Install Starship prompt
+#   8. Install SSH service for GitHub Codespaces
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get -y install sudo curl fish neovim exa git && \
@@ -23,17 +24,18 @@ RUN apt-get update && \
     chmod +x /starship_installer.sh && \
     /starship_installer.sh --yes && \
     rm /starship_installer.sh && \
-    git config --global user.email vsnthdev@gmail.com && \
-    git config --global user.name "Vasanth Developer" && \
-    git config --global core.editor "'code-insiders' -w" && \
-    git config --global core.autocrlf false && \
-    git config --global commit.template "~/.gitmessage" && \
-    git config --global pull.rebase false
+    curl -fsSL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/sshd-debian.sh > /ssh_debian.sh && \
+    chmod +x /ssh_debian.sh && \
+    /ssh_debian.sh && \
+    rm /ssh_debian.sh && \
+    chsh -s /usr/bin/bash serverfiles
 
 COPY ./.config /home/serverfiles/.config
 COPY ./.git* /home/serverfiles/
+COPY ./.bashrc /home/serverfiles/.bashrc
 
 RUN chown -R serverfiles:serverfiles /home/serverfiles/.config && \
-    chown -R serverfiles:serverfiles /home/serverfiles/.git*
+    chown -R serverfiles:serverfiles /home/serverfiles/.git* && \
+    chown serverfiles:serverfiles /home/serverfiles/.bashrc
 
 USER serverfiles
