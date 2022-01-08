@@ -11,3 +11,6 @@ disabled = false
 
 [package]
 symbol = "🎁"
+
+[hostname]
+disabled = true
