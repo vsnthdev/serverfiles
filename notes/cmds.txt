@@ -1,3 +1,6 @@
+RUNS:
+    node dist/serverfiles.js write ./example/template.hbs example/sshd_config --data example/data.yml
+
 serverfiles
     write
         <config>

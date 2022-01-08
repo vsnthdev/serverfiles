@@ -20,7 +20,7 @@ const banner = [
     `      ${chalk.cyanBright('\\/')}`,
 ]
 
-console.log(banner.join('\n').concat('\n'))
+if (Boolean(process.stdout.isTTY)) console.log(banner.join('\n').concat('\n'))
 
 export default async () => {
     logger = await itivrutaha.createNewLogger({

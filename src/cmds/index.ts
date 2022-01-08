@@ -8,6 +8,7 @@ import dirname from 'es-dirname'
 import fs from 'fs/promises'
 import path from 'path'
 import { isCaxa } from '../util.js'
+import write from './write/cmd/index.js'
 
 const program = new Command()
 
@@ -28,6 +29,7 @@ export default async () => {
         .addOption(
             new Option('--caxa', 'running from caxa package').hideHelp(true),
         )
+        .addCommand(write)
 
     return await program.parseAsync()
 }
