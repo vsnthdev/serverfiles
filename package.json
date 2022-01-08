@@ -15,11 +15,15 @@
         "type": "git",
         "url": "https://github.com/vsnthdev/serverfiles.git"
     },
-    "scripts": {},
+    "scripts": {
+        "clean": "rm -rf dist bin",
+        "build": "tsc --incremental false && caxa -i dist -o bin/serverfiles -- {{caxa}}/node_modules/.bin/node {{caxa}}/serverfiles.js"
+    },
     "devDependencies": {
         "@types/node": "^17.0.8",
         "@typescript-eslint/eslint-plugin": "^5.9.0",
         "@typescript-eslint/parser": "^5.9.0",
+        "caxa": "^2.1.0",
         "eslint": "^8.6.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.25.4",
