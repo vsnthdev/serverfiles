@@ -29,7 +29,8 @@
         "es-dirname": "^0.1.0",
         "handlebars": "^4.7.7",
         "itivrutaha": "^2.0.12",
-        "js-yaml": "^4.1.0"
+        "js-yaml": "^4.1.0",
+        "systeminformation": "^5.9.17"
     },
     "devDependencies": {
         "@types/js-yaml": "^4.0.5",

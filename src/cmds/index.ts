@@ -7,7 +7,7 @@ import { Command, Option } from 'commander'
 import dirname from 'es-dirname'
 import fs from 'fs/promises'
 import path from 'path'
-import { isCaxa } from '../util.js'
+import { isCaxa } from '../util/isCaxa.js'
 import write from './write/cmd/index.js'
 
 const program = new Command()
