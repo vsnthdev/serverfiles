@@ -27,6 +27,7 @@ export default async () => {
         .allowExcessArguments(false)
         .allowUnknownOption(false)
         .option('-q, --quiet', 'do not log any output')
+        .option('-v, --verbose', 'log additional output useful for debugging')
         .addOption(
             new Option('--caxa', 'running from caxa package').hideHelp(true),
         )

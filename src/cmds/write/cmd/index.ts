@@ -8,6 +8,7 @@ import renderConfig from '../lib/index.js'
 import path from 'path'
 import fs from 'fs/promises'
 import yaml from 'js-yaml'
+import mkdirp from 'mkdirp'
 
 const readData = async (data: string): Promise<any> => {
     // if data was not given, we return empty object
@@ -20,7 +21,7 @@ const readData = async (data: string): Promise<any> => {
     return yaml.load(str)
 }
 
-const action = async (template, dest, { data }) => {
+const action = async (template, dest, { data }, cmd: Command) => {
     // read data
     data = await readData(path.resolve(data))
 
@@ -28,9 +29,14 @@ const action = async (template, dest, { data }) => {
     template = await fs.readFile(path.resolve(template), 'utf-8')
 
     // pass it to lib/
-    const config = await renderConfig({ data, template })
+    const config = await renderConfig({
+        data,
+        template,
+        args: cmd.parent.opts(),
+    })
 
     // write the config file
+    await mkdirp(path.dirname(dest))
     await fs.writeFile(path.resolve(dest), config.trim().concat('\n'), 'utf-8')
 }
 

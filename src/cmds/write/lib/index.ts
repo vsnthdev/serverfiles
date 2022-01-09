@@ -8,12 +8,18 @@ import hbs from 'handlebars'
 import getSystemInfo from '../../../util/systemInfo.js'
 import timeHelper from './helpers/time.js'
 
-export default async ({ data, template }: { data: any; template: string }) => {
+interface RenderConfigImpl {
+    data: any
+    template: string
+    args: any
+}
+
+export default async ({ data, template, args }: RenderConfigImpl) => {
     // make environment variables available to config templates
     data['env'] = process.env
 
     // make system information available to config templates
-    data['sys'] = await getSystemInfo()
+    data['sys'] = await getSystemInfo(args)
 
     // register our custom helpers
     hbs.registerHelper('time', timeHelper)

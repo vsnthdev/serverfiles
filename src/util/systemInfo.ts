@@ -17,7 +17,7 @@ const exe = (cmd: string): Promise<string> =>
         })
     })
 
-export default async () => {
+export default async ({ verbose }) => {
     const info = {
         os: {
             ...(await si.osInfo()),
@@ -32,7 +32,8 @@ export default async () => {
     // remove some sensitive fields
     delete info.cpu.flags
 
-    console.log(info.os)
+    // print the info object if in verbose
+    if (verbose) console.log(info)
 
     return info
 }
