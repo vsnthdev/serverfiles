@@ -15,7 +15,7 @@ const readData = async (data: string): Promise<any> => {
     if (!data) return {}
 
     // read data
-    const str = await fs.readFile(data, 'utf-8')
+    const str = await fs.readFile(path.resolve(data), 'utf-8')
 
     // parse data
     return yaml.load(str)
@@ -23,7 +23,7 @@ const readData = async (data: string): Promise<any> => {
 
 const action = async (template, dest, { data }, cmd: Command) => {
     // read data
-    data = await readData(path.resolve(data))
+    data = await readData(data)
 
     // read template
     template = await fs.readFile(path.resolve(template), 'utf-8')
