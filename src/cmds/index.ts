@@ -26,6 +26,7 @@ export default async () => {
         .version(version)
         .allowExcessArguments(false)
         .allowUnknownOption(false)
+        .option('-q, --quiet', 'do not log any output')
         .addOption(
             new Option('--caxa', 'running from caxa package').hideHelp(true),
         )

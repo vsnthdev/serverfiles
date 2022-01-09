@@ -20,13 +20,18 @@ const banner = [
     `      ${chalk.cyanBright('\\/')}`,
 ]
 
-if (Boolean(process.stdout.isTTY)) console.log(banner.join('\n').concat('\n'))
+if (
+    Boolean(process.stdout.isTTY) &&
+    !process.argv.some(key => ['-q', '--quiet'].includes(key))
+)
+    console.log(banner.join('\n').concat('\n'))
 
 export default async () => {
     logger = await itivrutaha.createNewLogger({
         appName: 'serverfiles',
         bootLog: false,
         shutdownLog: false,
+        quietIdentifier: ['-q', '--quiet'],
         theme: {
             string: ':emoji :type :message',
         },
